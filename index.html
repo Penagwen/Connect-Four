@@ -5,44 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect 4</title>
     <style>
-        *{
-            margin: 0px;
+        * {
+            margin: 0;
             overflow: hidden;
         }
-        canvas{
-            opacity: 0.8;
+        #depth-slider input[type=range] {
+            width: 100px;
         }
-        img {
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            height: 100vh;
-            opacity: 0.25;
+        #depth-slider {
+            font-family: sans-serif;
+            font-size: 14px;
         }
-        span{
-            position: fixed;
-            opacity: 1;
-            left: 10px;
-            top: 10px;
-            font-size: 20px;
+
+        #aiFirstBtn {
+            position: absolute;
+            width: 100px;
+            top: 80px;
+            left: 20px;
+            padding: 12px 12px;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 100;
         }
-        button{
-            position: fixed;
-            bottom: 8%;
-            left: 0;
-            z-index: 1;
-        }
+
+
     </style>
 </head>
 <body>
     
-    <span></span>
+    <div id="depth-slider" style="position: absolute; top: 20px; left: 20px; background: rgba(255,255,255,0.8); padding: 5px; border-radius: 5px;">
+        <label for="searchDepth">Depth: <span id="depthValue">4</span></label><br>
+        <input type="range" id="searchDepth" min="1" max="40" value="4">
+    </div>
+
+    <button id="aiFirstBtn">Let AI Go First</button>
+
+
+    <!-- <span></span> -->
 
     <canvas></canvas>
 
-    <button onclick="restart();">restart</button>
-    <img src="images.jpeg">
-    <script src="./index.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script src="./connect.js"></script>
 </body>
 </html>
